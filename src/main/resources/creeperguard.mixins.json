@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.mpunkth.creeperguard.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"ExplosionImplMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

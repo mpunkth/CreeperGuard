@@ -1,0 +1,18 @@
+# Gradle / Fabric Loom
+.gradle/
+build/
+run/
+
+# Projektlokale Toolchain (JDK 21 + Gradle, ~1 GB – nicht ins Repo)
+tools/
+
+# Claude Code / lokale Werkzeug-Konfiguration
+.claude/
+.mcp.json
+
+# Editor / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

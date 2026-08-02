@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "creeperguard",
+	"version": "${version}",
+	"name": "CreeperGuard",
+	"description": "Schützt per Konsolenbefehl definierte Bereiche vor Explosions-Sachschaden (Blöcke, Items, Deko, Fahrzeuge, Tiere, Villager). Spieler nehmen weiterhin Schaden. Zonen sind persistent.",
+	"authors": [
+		"mpunkth"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.mpunkth.creeperguard.CreeperGuard"
+		]
+	},
+	"mixins": [
+		"creeperguard.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
