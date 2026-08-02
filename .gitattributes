@@ -1,0 +1,12 @@
+# Zeilenenden normalisieren (Repo speichert LF)
+* text=auto
+
+# Windows-Batch braucht CRLF beim Auschecken
+*.bat text eol=crlf
+
+# Unix-Shellskripte brauchen LF
+gradlew  text eol=lf
+*.sh     text eol=lf
+
+# Binärdateien nie anfassen
+*.jar binary
