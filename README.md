@@ -156,8 +156,14 @@ Beispielausgabe:
 
 ## Aus dem Quellcode bauen
 
-Die Build-Toolchain liegt projektlokal unter `tools/` (JDK 21 + Gradle). Bauen:
+Voraussetzung: **JDK 21**. Gradle selbst wird vom mitgelieferten Wrapper automatisch heruntergeladen – eine separate Gradle-Installation ist nicht nötig.
+
 ```bash
+git clone https://github.com/mpunkth/CreeperGuard.git
+cd CreeperGuard
 ./gradlew build
 ```
+
+Unter Windows: `gradlew.bat build`.
+
 Ergebnis: `build/libs/creeperguard-1.0.0.jar`.
