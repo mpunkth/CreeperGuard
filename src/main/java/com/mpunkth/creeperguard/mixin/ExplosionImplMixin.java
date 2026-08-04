@@ -1,5 +1,6 @@
 package com.mpunkth.creeperguard.mixin;
 
+import com.mpunkth.creeperguard.CreeperGuard;
 import com.mpunkth.creeperguard.util.EntityClassifier;
 import com.mpunkth.creeperguard.zone.ProtectionCategory;
 import com.mpunkth.creeperguard.zone.ZoneStore;
@@ -33,6 +34,9 @@ public abstract class ExplosionImplMixin {
 
 	@Shadow @Final @Nullable private Entity entity;
 
+	/** Einmal-Merker, damit ein dauerhaft inkompatibler Mod-Mix das Log nicht pro Explosion flutet. */
+	private static volatile boolean creeperguard$immutableListWarned = false;
+
 	/** Ist diese Explosion von einem Creeper (normal oder geladen) verursacht? */
 	private boolean creeperguard$isCreeper() {
 		return this.entity instanceof CreeperEntity;
@@ -61,8 +65,16 @@ public abstract class ExplosionImplMixin {
 					it.remove();
 				}
 			}
-		} catch (UnsupportedOperationException ignored) {
-			// Sollte die Liste ausnahmsweise unveränderlich sein, greifen wir nicht ein.
+		} catch (UnsupportedOperationException e) {
+			// Sollte die Liste ausnahmsweise unveränderlich sein, können wir nicht eingreifen.
+			// Das darf nicht still passieren: Der Blockschutz ist dann wirkungslos.
+			if (!creeperguard$immutableListWarned) {
+				creeperguard$immutableListWarned = true;
+				CreeperGuard.LOGGER.warn(
+						"Blockliste der Explosion ist unveränderlich – Blockschutz konnte nicht angewendet werden. "
+								+ "Vermutlich liefert eine andere Mod eine unveränderliche Liste an destroyBlocks. "
+								+ "(Diese Warnung erscheint nur einmal pro Serverlauf.)", e);
+			}
 		}
 	}
 
