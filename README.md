@@ -9,7 +9,7 @@ In einer Schutzzone verursachen Explosionen **keinen Schaden mehr an Blöcken, I
 ## Installation
 
 1. Voraussetzung: **Fabric Loader** ≥ 0.19.3, **Fabric API** für 1.21.11 und **Java 21** auf dem Server.
-2. `creeperguard-1.0.0.jar` in den `mods/`-Ordner des Servers legen (die Fabric-API-Jar ebenfalls).
+2. `creeperguard-1.0.1.jar` in den `mods/`-Ordner des Servers legen (die Fabric-API-Jar ebenfalls).
 3. Server starten. Im Log erscheint: `CreeperGuard initialisiert – /creeperguard ist verfügbar.`
 
 ---
@@ -166,4 +166,4 @@ cd CreeperGuard
 
 Unter Windows: `gradlew.bat build`.
 
-Ergebnis: `build/libs/creeperguard-1.0.0.jar`.
+Ergebnis: `build/libs/creeperguard-1.0.1.jar`.
